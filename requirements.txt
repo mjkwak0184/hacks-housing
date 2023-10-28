@@ -1,0 +1,1 @@
+facebook-scraper >= 0.2.3
