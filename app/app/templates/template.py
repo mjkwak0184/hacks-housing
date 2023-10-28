@@ -107,7 +107,7 @@ def template(
             on_load=on_load,
         )
         def templated_page():
-            return rx.hstack(
+            return rx.vstack(
                 sidebar(),
                 rx.box(
                     rx.box(
