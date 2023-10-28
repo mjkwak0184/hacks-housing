@@ -49,6 +49,9 @@ if flags['scrape']:
     print(currentFacebookPost.image_url)
     print(currentFacebookPost.post_url)
     print(currentFacebookPost.timestamp)
+    
+    if len(currentFacebookPost.post_text) == 0:
+      continue
 
     PostgreSQL.insert("posts", 
                       {"id": currentFacebookPost.post_id, 
