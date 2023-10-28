@@ -9,15 +9,14 @@ class PostgreSQL:
 	def insert(table, data):
 		assert len(data) > 0
 		cursor = PostgreSQL.connection.cursor()
-		keys = []
-		values = []
-		for key in data:
-			keys.append(key)
-			values.append(data[key])
-		
+		keys = list(data.keys())
+		values = list(data.values())
+		placeholders = ", ".join(["%s"] * len(values))
+
 		cols = ", ".join(keys)
-		vals = ", ".join(values)
-		cursor.execute(f"INSERT INTO {table} ({cols}) VALUES ({keys})")
+		SQL = f"INSERT INTO {table} ({cols}) VALUES ({placeholders}) ON CONFLICT (id) DO NOTHING;"
+
+		cursor.execute(SQL, values)
 		PostgreSQL.connection.commit()
 		cursor.close()
 
@@ -27,7 +26,7 @@ class PostgreSQL:
 
 	@staticmethod
 	def connect():
-		PostgreSQL.connection = psycopg2.connect(database=db_credentails["database"], user=db_credentials["user"], password=db_credentials["password"], host=db_credentials["host"], port=db_credentials["port"])
+		PostgreSQL.connection = psycopg2.connect(database=db_credentials["database"], user=db_credentials["user"], password=db_credentials["password"], host=db_credentials["host"], port=db_credentials["port"])
 	
 	@staticmethod
 	def disconnect():
