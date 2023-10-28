@@ -19,25 +19,8 @@ def sidebar_header() -> rx.Component:
             height="2em",
         ),
         rx.spacer(),
-        # Link to Reflex GitHub repo.
-        rx.link(
-            rx.center(
-                rx.image(
-                    src="/github.svg",
-                    height="3em",
-                    padding="0.5em",
-                ),
-                box_shadow=styles.box_shadow,
-                bg="transparent",
-                border_radius=styles.border_radius,
-                _hover={
-                    "bg": styles.accent_color,
-                },
-            ),
-            href="https://github.com/reflex-dev/reflex",
-        ),
         width="100%",
-        border_bottom=styles.border,
+        
         padding="1em",
     )
 
@@ -144,7 +127,7 @@ def sidebar() -> rx.Component:
         display=["none", "none", "block"],
         min_width=styles.sidebar_width,
         width="100%",
-        position="sticky",
+        position="fixed",
         top="0px",
         border_right=styles.border,
     )
