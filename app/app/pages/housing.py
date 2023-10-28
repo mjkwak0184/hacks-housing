@@ -3,6 +3,10 @@ from app.templates import template
 
 import reflex as rx
 
+from app.components.ListingComponent import ListingComponent
+from app.data.Listing import Listing
+
+
 
 @template(route="/housing", title="Housing")
 def housing() -> rx.Component:
@@ -12,10 +16,6 @@ def housing() -> rx.Component:
         The UI for the housing dpage.
     """
     return rx.vstack(
-        rx.heading("Dashboard", font_size="3em"),
-        rx.text("Welcome to Reflex!"),
-        rx.text(
-            "You can edit this page in ",
-            rx.code("{your_app}/pages/housing.py"),
-        ),
+        rx.heading("Housing", font_size="3em"),
+        rx.foreach(Listing.sample_data, lambda listing: ListingComponent(listing))
     )
