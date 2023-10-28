@@ -120,9 +120,10 @@ def sidebar() -> rx.Component:
     from reflex.page import get_decorated_pages
 
     return rx.box(
-        rx.vstack(
+        rx.hstack(
             sidebar_header(),
-            rx.vstack(
+            rx.spacer(size="2em"),
+            rx.hstack(
                 *[
                     sidebar_item(
                         text=page.get("title", page["route"].strip("/").capitalize()),
@@ -137,12 +138,12 @@ def sidebar() -> rx.Component:
                 padding="1em",
             ),
             rx.spacer(),
-            sidebar_footer(),
-            height="100dvh",
+            #sidebar_footer(),
+            #height="100dvh",
         ),
         display=["none", "none", "block"],
         min_width=styles.sidebar_width,
-        height="100%",
+        width="100%",
         position="sticky",
         top="0px",
         border_right=styles.border,
