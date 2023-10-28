@@ -15,8 +15,9 @@ def sidebar_header() -> rx.Component:
     return rx.hstack(
         # The logo.
         rx.image(
-            src="/icon.svg",
-            height="2em",
+            src="/calhouse.svg",
+            height="5em",
+            width ="7em"
         ),
         rx.spacer(),
         width="100%",
@@ -127,7 +128,7 @@ def sidebar() -> rx.Component:
         display=["none", "none", "block"],
         min_width=styles.sidebar_width,
         width="100%",
-        position="fixed",
+        #position="fixed",
         top="0px",
         border_right=styles.border,
     )
