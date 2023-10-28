@@ -15,7 +15,8 @@ def housing() -> rx.Component:
     Returns:
         The UI for the housing dpage.
     """
+ 
     return rx.vstack(
         rx.heading("Housing", font_size="3em"),
-        rx.foreach(Listing.sample_data, lambda listing: ListingComponent(listing))
+        *[ListingComponent(listing) for listing in Listing.sample_data]
     )
