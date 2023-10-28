@@ -66,13 +66,12 @@ def sidebar_item(text: str, icon: str, url: str) -> rx.Component:
 
     return rx.link(
         rx.hstack(
-            rx.image(
-                src=icon,
-                height="2.5em",
-                padding="0.5em",
-            ),
+           
             rx.text(
                 text,
+                font_weight="bold",
+                height="2.5em",
+                padding="0.5em",
             ),
             bg=rx.cond(
                 active,
@@ -122,13 +121,10 @@ def sidebar() -> rx.Component:
                 padding="1em",
             ),
             rx.spacer(),
-            #sidebar_footer(),
-            #height="100dvh",
         ),
         display=["none", "none", "block"],
         min_width=styles.sidebar_width,
         width="100%",
-        #position="fixed",
         top="0px",
         border_right=styles.border,
     )
