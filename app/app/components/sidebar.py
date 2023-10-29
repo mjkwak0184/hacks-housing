@@ -64,7 +64,7 @@ def sidebar_item(text: str, icon: str, url: str) -> rx.Component:
         (State.router.page.path == "/") & (text == "Home")
     )   
 
-    disable_form = (text == "Form") & (~State.log_in)
+    disable_form = (text == "Form") & (State.is_logged_in)
    #print(disable_form, url)
 
     tooltip_dict = {

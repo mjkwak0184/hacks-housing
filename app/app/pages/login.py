@@ -32,9 +32,20 @@ class LoginPageState(State):
                 if not user.prefs_price:
                     return rx.redirect("/form")
                 return rx.redirect("/housing")
+            else:
+                return rx.window_alert("Matching email and password record not found. Please try again.")
     
     def signup(self):
-        pass
+        with rx.session() as session:
+            if session.exec(User.select.where(User.email == self.email)).first():
+                return rx.window_alert("Account already registered.")
+            new_user = User(email=self.email, password=self.password)
+            session.add(new_user)
+            session.expire_on_commit = False
+            session.commit()
+            rx.window_alert("Account successfully created.")
+            return rx.redirect("/login")
+
 
 
 
@@ -57,6 +68,7 @@ def login() -> rx.Component:
                 rx.input(name="email", on_change=LoginPageState.set_email, placeholder="Email", type_="text", padding="1em", font_size="1.5em"),
                 rx.input(name="password", on_change=LoginPageState.set_password, placeholder="Password", type_="password", padding="1em", margin_top="1.5em", font_size="1.5em"),
                 rx.button("Login", padding="1em", margin_top="1.5em", font_size="1.5em", on_click=LoginPageState.login, is_disabled=LoginPageState.login_form_disabled),
+                rx.button("Create New Account", padding="1em", margin_top="1.5em", font_size="1.5em", on_click=LoginPageState.signup, is_disabled=LoginPageState.login_form_disabled),
                 rx.link(rx.text("Forgot password?", font_size="1.2em"), href="/reset-password"),
             ),
         ),

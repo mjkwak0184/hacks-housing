@@ -9,7 +9,7 @@ class User(rx.Model, table=True):
     phone: str
     prefs_price: float
     prefs_gender: str
-    prefs_dist: float
+    prefs_distance: float
 
 class State(rx.State):
     """Base state for the app.
@@ -25,7 +25,7 @@ class State(rx.State):
 
     def logout(self):
         self.reset()
-        return rx.redirect("/")
+        # return rx.redirect("/")
 
 
 
