@@ -16,8 +16,8 @@ def sidebar_header() -> rx.Component:
         # The logo.
         rx.image(
             src="/calhouse.svg",
-            height="5em",
-            width ="7em"
+            height="7em",
+            width ="10em"
         ),
         rx.spacer(),
         width="100%",
