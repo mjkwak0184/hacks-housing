@@ -61,12 +61,21 @@ def sidebar_item(text: str, icon: str, url: str) -> rx.Component:
     """
     # Whether the item is active.
     active = (State.router.page.path == f"/{text.lower()}") | (
-        (State.router.page.path == "/") & text == "Home"
-    )
+        (State.router.page.path == "/") & (text == "Home")
+    )   
 
-    return rx.link(
+    disable_form = (text == "Form") & (~State.log_in)
+   #print(disable_form, url)
+
+    tooltip_dict = {
+        "Home": "Home Page",
+        "Form": "Preference Form for AI housing recommendations, login required",
+        "Housing": "Display of housing lists/recommendations",
+        "Login": "Login Page",
+    }
+
+    return rx.tooltip(rx.link(
         rx.hstack(
-           
             rx.text(
                 text,
                 font_weight="bold",
@@ -74,23 +83,34 @@ def sidebar_item(text: str, icon: str, url: str) -> rx.Component:
                 padding="0.5em",
             ),
             bg=rx.cond(
-                active,
-                styles.accent_color,
-                "transparent",
+                disable_form,
+                "lightgray",  # Dimmed background color for the disabled state
+                rx.cond(
+                    active,
+                    styles.accent_color,
+                    "transparent",
+                ),
             ),
             color=rx.cond(
-                active,
-                styles.accent_text_color,
-                styles.text_color,
+                disable_form,
+                "gray",  # Dimmed text color for the disabled state
+                rx.cond(
+                    active,
+                    styles.accent_text_color,
+                    styles.text_color,
+                ),
             ),
             border_radius=styles.border_radius,
             box_shadow=styles.box_shadow,
             width="100%",
             padding_x="1em",
         ),
-        href=url,
+        href=rx.cond(disable_form, "", url),  # Disable the link if disable_form is True
         width="100%",
+    ),
+        label=tooltip_dict[text],
     )
+
 
 
 def sidebar() -> rx.Component:

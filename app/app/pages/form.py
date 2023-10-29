@@ -12,7 +12,7 @@ def form() -> rx.Component:
         The UI for the dashboard page.
     """
     return rx.vstack(
-         rx.form(
+        rx.form(
             rx.vstack(
                 rx.heading("Preference Form", font_size="2em", text_align = "left"),
                 rx.input(
@@ -23,12 +23,19 @@ def form() -> rx.Component:
                     placeholder="Last Name", id="last_name"
                 ),
                 rx.input(
-                    placeholder="Price Maximum", id="price_max"
+                    placeholder="Budget", id="price_max"
+                ),
+                rx.input(
+                    placeholder="Gender", id="price_max"
+                ),
+                rx.input(
+                    placeholder="Distance", id="price_max"
                 ),
                 rx.hstack(
                     rx.checkbox("Privacy Agreement", id="check"),
                 ),
                 rx.button("Submit", type_="submit"),
+                rx.button("Logout", padding="0.5em", margin_top="5em", font_size="1.5em", on_click=State.handle_login_click),
             ),
             on_submit= State.handle_submit,
         ),

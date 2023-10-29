@@ -29,32 +29,11 @@ def login() -> rx.Component:
         ),
         rx.cond(
             State.log_in,
-               rx.form(
-            rx.vstack(
-                rx.heading("Preference Form", font_size="2em", text_align = "left"),
-                rx.input(
-                    placeholder="First Name",
-                    id="first_name",
+            rx.form(
+                rx.vstack(
+                    rx.button("Logout", padding="0.5em", margin_top="5em", font_size="1.5em", on_click=State.handle_login_click),
                 ),
-                rx.input(
-                    placeholder="Last Name", id="last_name"
-                ),
-                rx.input(
-                    placeholder="Budget", id="price_max"
-                ),
-                rx.input(
-                    placeholder="Gender", id="price_max"
-                ),
-                rx.input(
-                    placeholder="Distance", id="price_max"
-                ),
-                rx.hstack(
-                    rx.checkbox("Privacy Agreement", id="check"),
-                ),
-                rx.button("Submit", type_="submit"),
-                rx.button("Logout", padding="0.5em", margin_top="5em", font_size="1.5em", on_click=State.handle_login_click),
-            ),
-            on_submit= State.handle_submit,
+                on_submit= State.handle_submit,
             ),
                 
         ),
