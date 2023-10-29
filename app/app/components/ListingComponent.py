@@ -1,22 +1,13 @@
 import reflex as rx
-from app.styles import accent_color, accent_text_color
+
 from app.data.Listing import Listing
 from app.components.ListingCategory import ListingCategory
 
-def ListingComponent(listing: Listing) -> rx.Component:
-    style = {
-    "color": accent_text_color,
-    "background_color": accent_color,
-    "text_transform": "uppercase",
-    "font-weight": "bold",
-    "font-size": "10pt",
-    "padding": "6px 10px 6px 10px",
-    "border-radius": "100px"
-    }
-    # print(State.filled)
+def ListingComponent(listing) -> rx.Component:
+    if not isinstance(listing, Listing): return rx.vstack()
     return rx.vstack(
-         rx.image(
-                src= listing.images, 
+            rx.image(
+                src= listing.url, 
                 width="300px", 
                 height="300px",
                 border_radius="15px 15px",
@@ -24,7 +15,6 @@ def ListingComponent(listing: Listing) -> rx.Component:
                 box_shadow="lg"
             ),
             rx.text(listing.data["price"], font_weight = "bold"),
-            #*[ListingCategory(key,listing.data[key]) for key in listing.data]
             rx.popover(
             rx.popover_trigger(rx.button("Details")),
             rx.popover_content(
@@ -37,5 +27,5 @@ def ListingComponent(listing: Listing) -> rx.Component:
             prevent_overflow = True,
             placement = "auto-start"
             ),
-    ),
+        ),
     )

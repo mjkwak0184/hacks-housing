@@ -1,15 +1,22 @@
 import reflex as rx
 import pandas as pd
 class Listing:
-    def __init__(self, id, url, body, timestamp="", images=[], data={}) -> None:
-        self.id = id
-        self.url= url
-        self.body = body
-        self.timestamp = timestamp
-        self.images = images
-        self.data = data
+    id: int
+    url: str
+    body: str
+    timestamp: str
+    images: [str]
+    data: dict
+
+    def __init__(self, id:int, url:str, body:str, timestamp="", images=[], data={}) -> None:
+        self.id: int = id
+        self.url: str = url
+        self.body: str  = body
+        self.timestamp: str = timestamp
+        self.images: [str] = images
+        self.data: dict = data
     
-    sample_data = []
+    data = []
 
     def listings_to_dataframe(listings):
         rows = []
@@ -54,6 +61,10 @@ class Listing:
             listings.append(Listing(id_val, url, body, timestamp, images, data))
 
         return listings
+    
+    # def __str__(self):
+    #     s = ",".join(self.images)
+    #     return f"{self.id},{self.url},{self.body},{self.timestamp},{s},{self.data}"
 
 
     
@@ -76,7 +87,7 @@ sample = {
 body_1 = "I am a graduate student at Cal and I have a private furnished bedroom on MLK and Delaware to sublet for the months of June and July. rent will be 1300 + utilities. Here is the craigslist posting dm me"
 body_2 = "Spring 2024 Jan- June Sublease Hi everyone! I am subleasing my spot in a double at The Varsity for Spring 2024 (beginning of Jan-beginning of June- 5 month lease) because I will be studying abroad. My roommate is very friendly and chill and one of my closest friends as well! It is a spacious double in a 3 bed/2 bath apartment with in unit washer/dryer, valet trash, and two balconies. The location is prime and a little over a block away from campus, close to Trader Joe’s, a walk away from the BART station too! The living room has a view of the golden gate too! If you are interested, want more details, or have questions please reach out!"
 
-Listing.sample_data = [Listing(1, url = unit1_url,  body = body_1, timestamp = "Jan-10-2020", images = unit1_url, data = sample),
+Listing.data = [Listing(1, url = unit1_url,  body = body_1, timestamp = "Jan-10-2020", images = unit1_url, data = sample),
                        Listing(2, url = unit2_url,  body = body_2, timestamp = "June-20-2023", images = unit1_url, data = sample),
                        Listing(3, url = unit2_url,  body = body_2, timestamp = "Jan-10-2020", images = unit1_url, data = sample),
                        Listing(4, url = unit2_url,  body = body_2, timestamp = "Jan-10-2020", images = unit2_url, data = sample),
@@ -86,6 +97,6 @@ Listing.sample_data = [Listing(1, url = unit1_url,  body = body_1, timestamp = "
                        Listing(8, url = unit2_url,  body = body_2, timestamp = "Jan-10-2020", images = unit2_url, data = sample),
                          ]
 
-Listing.listings_to_dataframe(Listing.sample_data)
+Listing.listings_to_dataframe(Listing.data)
 
 

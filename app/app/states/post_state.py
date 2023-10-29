@@ -1,7 +1,8 @@
 import reflex as rx
-from base import State
+from app.states.base import State
 from app.data.Listing import Listing
 import json
+from typing import List
 
 class Post(rx.Model, table=True):
     url: str
@@ -15,7 +16,8 @@ class Post(rx.Model, table=True):
         return Listing(self.id, self.url, self.body, self.timestamp, self.images.split(","), json.loads(self.parsed_output))
 
 class PostState(State):
-    posts:[Listing] = []
+    # listings: List[Listing] = []
+    listings: List[Listing] = [Listing(4, url = "https://google.com",  body = "test from nothing", timestamp = "Jan-10-2020", images = [], data = {"price": 0})]
 
     def get_post(id, add_to_post_state = False):
         with rx.session() as session:
@@ -25,17 +27,18 @@ class PostState(State):
             if post:
                 listing = post.to_listing()
                 if add_to_post_state:
-                    PostState.posts.append(listing)
+                    PostState.listings.append(listing)
                 return listing
             return None
 
     def get_all_post():
+        print("Get all posts")
         with rx.session() as session:
             posts = session.exec(Post.select)
             if posts:
                 listings = []
                 for post in posts:
                     listings.append(post.to_listing())
-                PostState.posts = listings
+                PostState.listings = listings
                 return listings
             return None

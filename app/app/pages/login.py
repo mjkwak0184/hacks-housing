@@ -4,6 +4,7 @@ from app.templates import template
 
 import reflex as rx
 from app.states.base import User, State
+from app.states.post_state import PostState
 
 
 class LoginPageState(State):
@@ -31,6 +32,7 @@ class LoginPageState(State):
                 self.current_user = user
                 if not user.prefs_price:
                     return rx.redirect("/form")
+
                 return rx.redirect("/housing")
             else:
                 return rx.window_alert("Matching email and password record not found. Please try again.")
