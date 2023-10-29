@@ -74,7 +74,7 @@ def login() -> rx.Component:
         ),
 
         width="100vw",  # Full viewport width
-        height="100vh",  # Full viewport height
+        height="80vh",  # Full viewport height
         display="flex",  # Enables flexbox
         align_items="center",  # Vertically centers content
         justify_content="center",  # Horizontally centers content

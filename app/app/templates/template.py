@@ -112,9 +112,9 @@ def template(
                 rx.box(
                     rx.box(
                         page_content(),
-                        **styles.template_content_style,
+                        # **styles.template_content_style,
                     ),
-                    **styles.template_page_style,
+                    # **styles.template_page_style,
                 ),
                 rx.spacer(),
                 align_items="flex-start",
