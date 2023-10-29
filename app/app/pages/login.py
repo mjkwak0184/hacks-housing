@@ -40,7 +40,13 @@ def login() -> rx.Component:
                     placeholder="Last Name", id="last_name"
                 ),
                 rx.input(
-                    placeholder="Price Maximum", id="price_max"
+                    placeholder="Budget", id="price_max"
+                ),
+                rx.input(
+                    placeholder="Gender", id="price_max"
+                ),
+                rx.input(
+                    placeholder="Distance", id="price_max"
                 ),
                 rx.hstack(
                     rx.checkbox("Privacy Agreement", id="check"),

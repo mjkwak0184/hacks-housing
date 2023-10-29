@@ -15,7 +15,21 @@ def housing() -> rx.Component:
     Returns:
         The UI for the housing dpage.
     """
- 
-    return rx.hstack(
-        *[ListingComponent(listing) for listing in Listing.sample_data]
+    list_all = []
+    item_num = len(Listing.sample_data)
+    for i in range(0, item_num,3):
+        sub_list = []
+        sub_list.append(Listing.sample_data[i])
+        sub_list.append(Listing.sample_data[i+1])
+        sub_list.append(Listing.sample_data[i+2])
+        list_all.append(sub_list)
+
+    rx_hstacks = []
+    for i in range(0, len(list_all)):
+        hstack = rx.hstack(
+        *[ListingComponent(listing) for listing in list_all[i]]
+        )
+        rx_hstacks.append(hstack)
+    return rx.vstack(
+        *rx_hstacks
     )
