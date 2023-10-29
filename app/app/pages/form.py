@@ -32,8 +32,8 @@ def form() -> rx.Component:
             ),
             on_submit= State.handle_submit,
         ),
-        width="100vw",  # Full viewport width
-        height="100vh",  # Full viewport height
+        width="90vw",  # Full viewport width
+        height="90vh",  # Full viewport height
         display="flex",  # Enables flexbox
         align_items="left",  
         justify_content="left",  # Horizontally centers content
