@@ -23,7 +23,10 @@ def ListingComponent(listing: Listing) -> rx.Component:
                 border="5px",
                 box_shadow="lg"
             ),
-            rx.text(listing.data["price"], font_weight = "bold"),
+            rx.hstack(
+                rx.text("Price: " + str(listing.data["price"]), font_weight = "bold", style = style),
+                rx.checkbox()
+            ),
             #*[ListingCategory(key,listing.data[key]) for key in listing.data]
             rx.popover(
             rx.popover_trigger(rx.button("Details")),
