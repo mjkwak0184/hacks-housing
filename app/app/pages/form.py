@@ -36,7 +36,7 @@ def form() -> rx.Component:
                 ),
                 rx.button("Submit", type_="submit"),
             ),
-            on_submit= State.handle_submit,
+            # on_submit= ,
         ),
         width="90vw",  # Full viewport width
         height="90vh",  # Full viewport height
