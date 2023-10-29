@@ -36,18 +36,11 @@ export default function Component() {
     }
   }, [router])
 
-<<<<<<< Updated upstream
-  const ref_check = useRef(null); refs['ref_check'] = ref_check;
-  const ref_price_max = useRef(null); refs['ref_price_max'] = ref_price_max;
-  const ref_first_name = useRef(null); refs['ref_first_name'] = ref_first_name;
-  const ref_last_name = useRef(null); refs['ref_last_name'] = ref_last_name;
-=======
-  const ref_prefs_distance = useRef(null); refs['ref_prefs_distance'] = ref_prefs_distance;
   const ref_prefs_price = useRef(null); refs['ref_prefs_price'] = ref_prefs_price;
-  const ref_check = useRef(null); refs['ref_check'] = ref_check;
   const ref_prefs_gender = useRef(null); refs['ref_prefs_gender'] = ref_prefs_gender;
+  const ref_check = useRef(null); refs['ref_check'] = ref_check;
+  const ref_prefs_distance = useRef(null); refs['ref_prefs_distance'] = ref_prefs_distance;
   const ref_username = useRef(null); refs['ref_username'] = ref_username;
->>>>>>> Stashed changes
 
   return (
     <Fragment>

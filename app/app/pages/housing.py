@@ -16,6 +16,13 @@ def housing() -> rx.Component:
         The UI for the housing dpage.
     """
 
+
+    return rx.responsive_grid(
+        *[ListingComponent(listing) for listing in Listing.sample_data],
+        columns=[1, 2, 3, 4],
+        spacing="4"
+    )
+
     list_all = []
     item_num = len(Listing.sample_data)
     print(item_num)

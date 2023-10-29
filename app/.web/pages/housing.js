@@ -3,7 +3,7 @@ import { useRouter } from "next/router"
 import { Event, getAllLocalStorageItems, getRefValue, getRefValues, isTrue, preventDefault, refs, spreadArraysOrObjects, uploadFiles, useEventLoop } from "/utils/state"
 import { ColorModeContext, EventLoopContext, initialEvents, StateContext } from "/utils/context.js"
 import "focus-visible/dist/focus-visible"
-import { Box, Button, Checkbox, HStack, Image, Link, Modal, ModalBody, ModalContent, ModalHeader, ModalOverlay, Popover, PopoverBody, PopoverCloseButton, PopoverContent, PopoverFooter, PopoverHeader, PopoverTrigger, Spacer, Text, Tooltip, VStack } from "@chakra-ui/react"
+import { Box, Button, Checkbox, HStack, Image, Link, Modal, ModalBody, ModalContent, ModalHeader, ModalOverlay, Popover, PopoverBody, PopoverCloseButton, PopoverContent, PopoverFooter, PopoverHeader, PopoverTrigger, SimpleGrid, Spacer, Text, Tooltip, VStack } from "@chakra-ui/react"
 import { getEventURL } from "/utils/state.js"
 import NextLink from "next/link"
 import NextHead from "next/head"
@@ -114,8 +114,7 @@ export default function Component() {
 </Box>
   <Box>
   <Box>
-  <VStack>
-  <HStack>
+  <SimpleGrid columns={[1, 2, 3, 4]} spacing={`4`}>
   <VStack>
   <Image src={`https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/393640815_2546204882203493_2764637398827397985_n.jpg?stp=cp6_dst-jpg&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=4wVgP9zNbzMAX_P7alj&_nc_ht=scontent-atl3-1.xx&oh=00_AfA9mZZSmH-CIp-Z6HHxG2zU1gqfjF6W9oIL2Nnvo4reVQ&oe=65443266`} sx={{"width": "300px", "height": "300px", "borderRadius": "15px 15px", "border": "5px", "boxShadow": "lg"}}/>
   <HStack>
@@ -213,7 +212,7 @@ export default function Component() {
   {`Post Content`}
 </PopoverHeader>
   <PopoverBody>
-  {`Spring 2024 Jan- June Sublease Hi everyone! I am subleasing my spot in a double at The Varsity for Spring 2024 (beginning of Jan-beginning of June- 5 month lease) because I will be studying abroad. My roommate is very friendly and chill and one of my closest friends as well! It is a spacious double in a 3 bed/2 bath apartment with in unit washer/dryer, valet trash, and two balconies. The location is prime and a little over a block away from campus, close to Trader Joe’s, a walk away from the BART station too! The living room has a view of the golden gate too! If you are interested, want more details, or have questions please reach out!`}
+  {`2283 Hearst Ave studio $1625`}
 </PopoverBody>
   <PopoverHeader sx={{"fontWeight": "bold"}}>
   {`Potential Room Mates`}
@@ -234,11 +233,7 @@ export default function Component() {
 </Popover>
 </VStack>
   <VStack>
-<<<<<<< Updated upstream
   <Image src={`https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/395450827_872660757696220_6598379516900682110_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_ohc=N9LwnaeYP1QAX9shxvi&_nc_ht=scontent-atl3-1.xx&oh=00_AfDN4-yqkOx2f506uQ4NtfSvIf6GcDn3ztMXJ3nSa39f7w&oe=65436899`} sx={{"width": "300px", "height": "300px", "borderRadius": "15px 15px", "border": "5px", "boxShadow": "lg"}}/>
-=======
-  <Image src={`https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/396710150_297174383196444_6796893575791022824_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=TzYpNVfqbTAAX-ERpWM&_nc_ht=scontent-atl3-1.xx&oh=00_AfCet5HRtbn7TItG74KHANvtOH1WzPQwTfuDXsiXORTWKA&oe=6543D48B`} sx={{"width": "300px", "height": "300px", "borderRadius": "15px 15px", "border": "5px", "boxShadow": "lg"}}/>
->>>>>>> Stashed changes
   <HStack>
   <Text sx={{"color": "#003262", "backgroundColor": "#FDB515", "textTransform": "uppercase", "font-weight": "bold", "font-size": "10pt", "padding": "6px 10px 6px 10px", "border-radius": "100px", "fontWeight": "bold"}}>
   {`Price: 1050`}
@@ -256,7 +251,7 @@ export default function Component() {
   {`Post Content`}
 </PopoverHeader>
   <PopoverBody>
-  {`Spring 2024 Jan- June Sublease Hi everyone! I am subleasing my spot in a double at The Varsity for Spring 2024 (beginning of Jan-beginning of June- 5 month lease) because I will be studying abroad. My roommate is very friendly and chill and one of my closest friends as well! It is a spacious double in a 3 bed/2 bath apartment with in unit washer/dryer, valet trash, and two balconies. The location is prime and a little over a block away from campus, close to Trader Joe’s, a walk away from the BART station too! The living room has a view of the golden gate too! If you are interested, want more details, or have questions please reach out!`}
+  {`Hi, I'm looking for a sublease for the 2024 Spring Semester. I'm in Berkeley working as an independent software developer and assistant coach for the UC squash team. I also have a 2.5 lbs. service dog named Peanut, so if you or any of your housemates smoke cigarettes indoors, please do not DM or comment on this post please as it's extremely toxic for such a small dog. I'm looking to stay in a budget of around $1000/mo.`}
 </PopoverBody>
   <PopoverHeader sx={{"fontWeight": "bold"}}>
   {`Potential Room Mates`}
@@ -269,19 +264,13 @@ export default function Component() {
   <PopoverHeader sx={{"fontWeight": "bold"}}>
   {`Original Post`}
 </PopoverHeader>
-<<<<<<< Updated upstream
   <Link as={NextLink} href={`https://www.facebook.com/photo/?fbid=297174403196442&set=pcb.1864431217286025`} sx={{"color": "rgb(107,99,246)", "align": "center"}}>
-=======
-  <Link as={NextLink} href={`https://www.facebook.com/photo/?fbid=2044289395939487&set=gm.1864468030615677&idorvanity=128476910881473`} sx={{"color": "rgb(107,99,246)", "align": "center"}}>
->>>>>>> Stashed changes
   {`Housing Page `}
 </Link>
   <PopoverCloseButton/>
 </PopoverContent>
 </Popover>
 </VStack>
-</HStack>
-  <HStack>
   <VStack>
   <Image src={`https://scontent-atl3-2.xx.fbcdn.net/v/t39.30808-6/395758919_308470398602173_3207521252533706889_n.jpg?stp=cp6_dst-jpg&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_ohc=7UgEoqpNGWwAX9Lfiwd&_nc_ht=scontent-atl3-2.xx&oh=00_AfCO1dG6VA9UHXk9rWtnm9GEqdyH_u5UOjuB2mwaE1iz1w&oe=6543C301`} sx={{"width": "300px", "height": "300px", "borderRadius": "15px 15px", "border": "5px", "boxShadow": "lg"}}/>
   <HStack>
@@ -301,7 +290,7 @@ export default function Component() {
   {`Post Content`}
 </PopoverHeader>
   <PopoverBody>
-  {`Spring 2024 Jan- June Sublease Hi everyone! I am subleasing my spot in a double at The Varsity for Spring 2024 (beginning of Jan-beginning of June- 5 month lease) because I will be studying abroad. My roommate is very friendly and chill and one of my closest friends as well! It is a spacious double in a 3 bed/2 bath apartment with in unit washer/dryer, valet trash, and two balconies. The location is prime and a little over a block away from campus, close to Trader Joe’s, a walk away from the BART station too! The living room has a view of the golden gate too! If you are interested, want more details, or have questions please reach out!`}
+  {`Looking for housing in the Downtown Berkeley area! Open to singles or doubles, and need to have parking for my car. Little bit about myself: I’m a working professional currently on my gap year, applying to medical school. I work near Berkeley M-Fri, so will be out of the apartment from 7:30 am - 5:30 pm everyday. I travel home on the weekends so I won’t be there then either.I’m not alc, 420 friendly. Looking for female only roomies!`}
 </PopoverBody>
   <PopoverHeader sx={{"fontWeight": "bold"}}>
   {`Potential Room Mates`}
@@ -340,7 +329,7 @@ export default function Component() {
   {`Post Content`}
 </PopoverHeader>
   <PopoverBody>
-  {`Spring 2024 Jan- June Sublease Hi everyone! I am subleasing my spot in a double at The Varsity for Spring 2024 (beginning of Jan-beginning of June- 5 month lease) because I will be studying abroad. My roommate is very friendly and chill and one of my closest friends as well! It is a spacious double in a 3 bed/2 bath apartment with in unit washer/dryer, valet trash, and two balconies. The location is prime and a little over a block away from campus, close to Trader Joe’s, a walk away from the BART station too! The living room has a view of the golden gate too! If you are interested, want more details, or have questions please reach out!`}
+  {`[SPRING SEMESTER SUBLET; VERY LARGE SINGLE] Hello everyone! I am subletting my large single room in a 2 Bed, 1 Bath apartment for the Spring semester 2024 (January-May 2024); looking for a male-identifying subletter! Rent is $1600/month + PG&E, but with the size of the room and the location only 10 minutes from campus (located off Dwight between College and Piedmont), it is completely worth it! The room has lots of natural light and is very spacious! I will be leaving the room furnished, so you do not need to worry about furnishings. Please message me if you’re interested!`}
 </PopoverBody>
   <PopoverHeader sx={{"fontWeight": "bold"}}>
   {`Potential Room Mates`}
@@ -379,7 +368,7 @@ export default function Component() {
   {`Post Content`}
 </PopoverHeader>
   <PopoverBody>
-  {`Spring 2024 Jan- June Sublease Hi everyone! I am subleasing my spot in a double at The Varsity for Spring 2024 (beginning of Jan-beginning of June- 5 month lease) because I will be studying abroad. My roommate is very friendly and chill and one of my closest friends as well! It is a spacious double in a 3 bed/2 bath apartment with in unit washer/dryer, valet trash, and two balconies. The location is prime and a little over a block away from campus, close to Trader Joe’s, a walk away from the BART station too! The living room has a view of the golden gate too! If you are interested, want more details, or have questions please reach out!`}
+  {`Hello, I am looking to sub-lease a place for the Spring semester! I am honestly pretty quite and keep to myself for the most part, and I probably gonna be outside a good amount of the time! Please let me know if anyone has any rooms available, my budget is about 1000`}
 </PopoverBody>
   <PopoverHeader sx={{"fontWeight": "bold"}}>
   {`Potential Room Mates`}
@@ -400,11 +389,7 @@ export default function Component() {
 </Popover>
 </VStack>
   <VStack>
-<<<<<<< Updated upstream
   <Image src={`https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/396735328_10168178130585022_6322194620757932184_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=JUTS-Jq5M3cAX_Kq6cz&_nc_ht=scontent-atl3-1.xx&oh=00_AfAYjE2eaWn-tRNwTZPE6CF7oJXc5DMQERTRw2cINc23QQ&oe=65437BFB`} sx={{"width": "300px", "height": "300px", "borderRadius": "15px 15px", "border": "5px", "boxShadow": "lg"}}/>
-=======
-  <Image src={`https://scontent-atl3-2.xx.fbcdn.net/v/t39.30808-6/395388887_1706392373172543_4797809958436331633_n.jpg?stp=cp6_dst-jpg&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=DysKUkaTldEAX-oyFRB&_nc_ht=scontent-atl3-2.xx&oh=00_AfCmgEs5eLKs2ciaTSnBEvXIoStgZ3Vw6UHOv0ROzo60qQ&oe=654290D6`} sx={{"width": "300px", "height": "300px", "borderRadius": "15px 15px", "border": "5px", "boxShadow": "lg"}}/>
->>>>>>> Stashed changes
   <HStack>
   <Text sx={{"color": "#003262", "backgroundColor": "#FDB515", "textTransform": "uppercase", "font-weight": "bold", "font-size": "10pt", "padding": "6px 10px 6px 10px", "border-radius": "100px", "fontWeight": "bold"}}>
   {`Price: 1050`}
@@ -422,7 +407,7 @@ export default function Component() {
   {`Post Content`}
 </PopoverHeader>
   <PopoverBody>
-  {`Spring 2024 Jan- June Sublease Hi everyone! I am subleasing my spot in a double at The Varsity for Spring 2024 (beginning of Jan-beginning of June- 5 month lease) because I will be studying abroad. My roommate is very friendly and chill and one of my closest friends as well! It is a spacious double in a 3 bed/2 bath apartment with in unit washer/dryer, valet trash, and two balconies. The location is prime and a little over a block away from campus, close to Trader Joe’s, a walk away from the BART station too! The living room has a view of the golden gate too! If you are interested, want more details, or have questions please reach out!`}
+  {`I'm looking to stay in a budget of around $1000/mo.`}
 </PopoverBody>
   <PopoverHeader sx={{"fontWeight": "bold"}}>
   {`Potential Room Mates`}
@@ -435,19 +420,14 @@ export default function Component() {
   <PopoverHeader sx={{"fontWeight": "bold"}}>
   {`Original Post`}
 </PopoverHeader>
-<<<<<<< Updated upstream
   <Link as={NextLink} href={`https://www.facebook.com/pfbid0WbUx5kZKeeMGgDdjEWZ4LBuvHiikGvP6x5n6HhMXsRVzWQshyT5zSbT6szp962nql/videos/pcb.1863309114064902/351837304188629`} sx={{"color": "rgb(107,99,246)", "align": "center"}}>
-=======
-  <Link as={NextLink} href={`https://www.facebook.com/photo/?fbid=24762300080035270&set=pcb.1864329413962872`} sx={{"color": "rgb(107,99,246)", "align": "center"}}>
->>>>>>> Stashed changes
   {`Housing Page `}
 </Link>
   <PopoverCloseButton/>
 </PopoverContent>
 </Popover>
 </VStack>
-</HStack>
-</VStack>
+</SimpleGrid>
 </Box>
 </Box>
   <Spacer/>
