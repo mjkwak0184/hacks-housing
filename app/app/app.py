@@ -1,6 +1,8 @@
 """Welcome to Reflex!."""
 
 from app import styles
+from dotenv import load_dotenv
+load_dotenv()
 
 # Import all the pages.
 from app.pages import *

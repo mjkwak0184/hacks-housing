@@ -3,5 +3,5 @@ import os
 
 config = rx.Config(
     app_name="app",
-    db_url = os.getenv('db_url')
+    db_url = os.getenv('DB_HOST')
 )

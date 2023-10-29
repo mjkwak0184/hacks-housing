@@ -1,7 +1,7 @@
 """Sidebar component for the app."""
 
 from app import styles
-from app.state import State
+from app.states.base import State
 
 import reflex as rx
 

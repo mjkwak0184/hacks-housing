@@ -1,2 +1,3 @@
 /scraper/secrets.py
+.env
 __pycache__/

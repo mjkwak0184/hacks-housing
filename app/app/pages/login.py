@@ -3,8 +3,46 @@
 from app.templates import template
 
 import reflex as rx
-from app.state import State
+from app.states.base import User, State
 
+
+class LoginPageState(State):
+    email: str
+    password: str
+
+    @rx.var
+    def login_form_enabled(self):
+        return len(self.email) > 0 and len(self.password) > 0
+    
+    def set_email(self, email):
+        self.email = email.strip()
+    
+    def set_password(self, password):
+        self.password = password.strip()
+
+    def login(self):
+        # return if login form is disabled
+        if not self.login_form_enabled(): return
+
+        with rx.session() as session:
+            session.exec
+
+
+    def login(self):
+        with rx.session() as session:
+            user = session.exec(
+                User.select.where(User.email == self.email)
+            ).first()
+
+            if user and user.password == self.password:
+                # assign self.current_user from parent state
+                self.current_user = user
+                if not user.prefs_price:
+                    return rx.redirect("/form")
+                return rx.redirect("/housing")
+    
+    def signup(self):
+        pass
 
 
 
@@ -15,27 +53,20 @@ def login() -> rx.Component:
     Returns:
         The UI for the login page.
     """
-    print("login check:", State.log_in)
+
+    # if State.is_logged_in:
+    #     return rx.redirect("/housing")
+
     return rx.vstack(
         rx.cond(
-            ~State.log_in,
+            ~State.is_logged_in,
             rx.vstack(
                 rx.heading("Login", font_size="4em"),
-                rx.input(name="username", placeholder="Username or Email", type="text", padding="1em", font_size="1.5em"),
-                rx.input(name="password", placeholder="Password", type="password", padding="1em", margin_top="1.5em", font_size="1.5em"),
-                rx.button("Login", padding="1em", margin_top="1.5em", font_size="1.5em", on_click=State.handle_login_click),
+                rx.input(name="email", on_blur=LoginPageState.set_email, placeholder="Email", type_="text", padding="1em", font_size="1.5em"),
+                rx.input(name="password", on_blur=LoginPageState.set_password, placeholder="Password", type_="password", padding="1em", margin_top="1.5em", font_size="1.5em"),
+                rx.button("Login", padding="1em", margin_top="1.5em", font_size="1.5em", on_click=LoginPageState.login),
                 rx.link(rx.text("Forgot password?", font_size="1.2em"), href="/reset-password"),
             ),
-        ),
-        rx.cond(
-            State.log_in,
-            rx.form(
-                rx.vstack(
-                    rx.button("Logout", padding="0.5em", margin_top="5em", font_size="1.5em", on_click=State.handle_login_click),
-                ),
-                on_submit= State.handle_submit,
-            ),
-                
         ),
 
         width="100vw",  # Full viewport width
