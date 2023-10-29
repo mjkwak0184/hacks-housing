@@ -1,4 +1,5 @@
 import reflex as rx
+import pandas as pd
 class Listing:
     def __init__(self, id, url, body, timestamp="", images=[], data={}) -> None:
         self.id = id
@@ -9,6 +10,54 @@ class Listing:
         self.data = data
     
     sample_data = []
+
+    def listings_to_dataframe(listings):
+        rows = []
+        for listing in listings:
+            row = {
+                "id": listing.id,
+                "url": listing.url,
+                "body": listing.body,
+                "timestamp": listing.timestamp,
+                "images": listing.images,
+            }
+            # merging the data dictionary with the row dictionary
+            row.update(listing.data)
+            rows.append(row)
+        return pd.DataFrame(rows)
+    
+    def dataframe_to_listings(df):
+        listings = []
+
+        # Iterate over each row in the dataframe
+        for _, row in df.iterrows():
+            # Extract attributes directly related to the Listing
+            id_val = row['id']
+            url = row['url']
+            body = row['body']
+            timestamp = row['timestamp']
+            images = row['images']
+            
+            # Extract the remaining columns for the 'data' attribute
+            data = {
+                'type': row['type'],
+                'price': row['price'],
+                'unit_type': row['unit_type'],
+                'num_bath': row['num_bath'],
+                'num_bed': row['num_bed'],
+                'location': row['location'],
+                'distance': row['distance'],
+                'gender': row['gender']
+            }
+            
+            # Create a Listing object and append to result list
+            listings.append(Listing(id_val, url, body, timestamp, images, data))
+
+        return listings
+
+
+    
+    
     
 
 unit1_url = "https://housing.berkeley.edu/wp-content/uploads/unit1-outside-750x500-1-700x500.jpg"
@@ -36,4 +85,7 @@ Listing.sample_data = [Listing(1, url = unit1_url,  body = body_1, timestamp = "
                        Listing(7, url = unit2_url,  body = body_2, timestamp = "Jan-10-2020", images = unit2_url, data = sample),
                        Listing(8, url = unit2_url,  body = body_2, timestamp = "Jan-10-2020", images = unit2_url, data = sample),
                          ]
+
+Listing.listings_to_dataframe(Listing.sample_data)
+
 
