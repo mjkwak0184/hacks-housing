@@ -11,22 +11,14 @@ class LoginPageState(State):
     password: str
 
     @rx.var
-    def login_form_enabled(self):
-        return len(self.email) > 0 and len(self.password) > 0
+    def login_form_disabled(self) -> bool:
+        return len(self.email) == 0 or len(self.password) == 0
     
     def set_email(self, email):
         self.email = email.strip()
     
     def set_password(self, password):
         self.password = password.strip()
-
-    def login(self):
-        # return if login form is disabled
-        if not self.login_form_enabled(): return
-
-        with rx.session() as session:
-            session.exec
-
 
     def login(self):
         with rx.session() as session:
@@ -62,9 +54,9 @@ def login() -> rx.Component:
             ~State.is_logged_in,
             rx.vstack(
                 rx.heading("Login", font_size="4em"),
-                rx.input(name="email", on_blur=LoginPageState.set_email, placeholder="Email", type_="text", padding="1em", font_size="1.5em"),
-                rx.input(name="password", on_blur=LoginPageState.set_password, placeholder="Password", type_="password", padding="1em", margin_top="1.5em", font_size="1.5em"),
-                rx.button("Login", padding="1em", margin_top="1.5em", font_size="1.5em", on_click=LoginPageState.login),
+                rx.input(name="email", on_change=LoginPageState.set_email, placeholder="Email", type_="text", padding="1em", font_size="1.5em"),
+                rx.input(name="password", on_change=LoginPageState.set_password, placeholder="Password", type_="password", padding="1em", margin_top="1.5em", font_size="1.5em"),
+                rx.button("Login", padding="1em", margin_top="1.5em", font_size="1.5em", on_click=LoginPageState.login, is_disabled=LoginPageState.login_form_disabled),
                 rx.link(rx.text("Forgot password?", font_size="1.2em"), href="/reset-password"),
             ),
         ),

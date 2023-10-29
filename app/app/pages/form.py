@@ -35,7 +35,6 @@ def form() -> rx.Component:
                     rx.checkbox("Privacy Agreement", id="check"),
                 ),
                 rx.button("Submit", type_="submit"),
-                rx.button("Logout", padding="0.5em", margin_top="5em", font_size="1.5em", on_click=State.handle_login_click),
             ),
             on_submit= State.handle_submit,
         ),
