@@ -15,9 +15,11 @@ def housing() -> rx.Component:
     Returns:
         The UI for the housing dpage.
     """
+
     list_all = []
     item_num = len(Listing.sample_data)
-    for i in range(0, item_num,3):
+    print(item_num)
+    for i in range(0, item_num,4):
         sub_list = []
         sub_list.append(Listing.sample_data[i])
         sub_list.append(Listing.sample_data[i+1])

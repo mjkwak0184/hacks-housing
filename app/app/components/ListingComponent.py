@@ -15,36 +15,27 @@ def ListingComponent(listing: Listing) -> rx.Component:
     }
     # print(State.filled)
     return rx.vstack(
-        rx.image(
-            src= listing.url, 
-            width="300px", 
-            height="300px",
-            border_radius="15px 15px",
-            border="5px",
-            box_shadow="lg"
-        ),
-        rx.hstack(
-            rx.text(listing.price, style=style, font_weight="bold"),
-            # rx.cond(
-            #       State.filled,
-            #       rx.IconButton(icon = "check", on_click = toggle),
-            #       rx.IconButton(icon = "check_circle", on_click = toggle),
-
-            # ),
-            
-
-        ),
-        
-        #*[ListingCategory(key,listing.data[key]) for key in listing.data]
-        rx.popover_trigger(rx.button("Details")),
-        rx.popover_content(
-        rx.popover_header("Post Content", font_weight = "bold"),
-        rx.popover_body(listing.body),
-        rx.popover_header("Potential Room Mates", font_weight = "bold"),
-        rx.popover_footer(rx.text("@Zi_xun_ww")),
-        rx.popover_close_button(),
-        width = "700px",
-        prevent_overflow = True,
-        placement = "auto-start"
-        ),
+         rx.image(
+                src= listing.images, 
+                width="300px", 
+                height="300px",
+                border_radius="15px 15px",
+                border="5px",
+                box_shadow="lg"
+            ),
+            rx.text(listing.data["price"], font_weight = "bold"),
+            #*[ListingCategory(key,listing.data[key]) for key in listing.data]
+            rx.popover(
+            rx.popover_trigger(rx.button("Details")),
+            rx.popover_content(
+            rx.popover_header("Post Content", font_weight = "bold"),
+            rx.popover_body(listing.body),
+            rx.popover_header("Potential Room Mates", font_weight = "bold"),
+            rx.popover_footer(rx.text("@Zi_xun_ww")),
+            rx.popover_close_button(),
+            width = "700px",
+            prevent_overflow = True,
+            placement = "auto-start"
+            ),
     ),
+    )
