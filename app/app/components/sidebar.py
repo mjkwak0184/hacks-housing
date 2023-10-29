@@ -72,6 +72,7 @@ def sidebar_item(text: str, icon: str, url: str) -> rx.Component:
         "Form": "Preference Form for AI housing recommendations, login required",
         "Housing": "Display of housing lists/recommendations",
         "Login": "Login Page",
+        # "Logout": "Logout"
     }
 
     return rx.tooltip(rx.link(
