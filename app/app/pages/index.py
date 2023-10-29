@@ -24,17 +24,22 @@ def index() -> rx.Component:
         "border-radius": "100px"
     }
 
-    return rx.hstack(
-            rx.vstack(
+    return rx.vstack(
+            rx.hstack(
                 rx.text("Navigating the housing market, especially around dynamic regions like Berkeley, \
                     can be daunting. But what if there was a smarter way to find your dream home, without the usual \
                     hassles?", width="50%"),
                 rx.spacer(size="2em"),
+                rx.image(src="https://www.brayerelectric.com/wp-content/uploads/2020/11/AnnaHead_Final.jpg", width="50%", height = "50%")
+            ),
+            rx.hstack (
                 rx.text("Enter [Your Startup Name]. Our platform, powered by advanced AI, is not just about finding a home\
                     – it's about finding the right home for you. Share with us your budget and how close or far\
                     you'd like to be from Berkeley, and our system will carefully analyze these preferences, \
                     along with other specifics you provide.", width="50%", style = style),
                 rx.spacer(size="2em"),
+            ),
+            rx.hstack(
                 rx.text("No more compromise between price and distance. \
                     Whether you want a cozy spot just a stone's throw from Berkeley or a serene escape a little further out, \
                     our platform is designed to find the best matches, tailored just for you.", width="50%"),
@@ -45,8 +50,5 @@ def index() -> rx.Component:
                 rx.text("what"),
                 align="left"
             ),
-            rx.vstack(
-                rx.text("picture")
-            )
     )
     
