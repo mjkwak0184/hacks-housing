@@ -1,10 +1,12 @@
 import reflex as rx
 class Listing:
-    def __init__(self, id, url, body, price) -> None:
+    def __init__(self, id, url, body, timestamp="", images=[], data={}) -> None:
         self.id = id
         self. url= url
         self.body = body
-        self.price = price
+        self.timestamp = timestamp
+        self.images = images
+        self.data = data
     
     sample_data = []
     
