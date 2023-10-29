@@ -17,7 +17,7 @@ class State(rx.State):
 
     def handle_login_click(self):
         self.log_in = ~self.log_in
-        return rx.redirect("/")
+        #return rx.redirect("/")
 
 
 
