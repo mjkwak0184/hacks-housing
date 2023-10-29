@@ -5,8 +5,8 @@ from app.components.ListingCategory import ListingCategory
 
 def ListingComponent(listing: Listing) -> rx.Component:
     return rx.vstack(
-        rx.text(listing.body),
-        rx.hstack(
-            *[ListingCategory(f"{key}: {listing.data[key]}") for key in listing.data]
+        rx.vstack(
+            rx.text(listing.body, font_weight="bold"),
+            *[ListingCategory(key,listing.data[key]) for key in listing.data]
         )
     )

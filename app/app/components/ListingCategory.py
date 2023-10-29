@@ -11,5 +11,15 @@ style = {
     "border-radius": "100px"
 }
 
-def ListingCategory(text) -> rx.Component:
-    return rx.text(text, style=style)
+def ListingCategory(key, text) -> rx.Component:
+    if key == "url":
+        return rx.image(
+        src= text, 
+        width="300px", 
+        height="300px",
+        border_radius="15px 15px",
+        border="5px",
+        box_shadow="lg"
+        )
+    else:
+        return rx.text(text, style=style, font_weight="bold")

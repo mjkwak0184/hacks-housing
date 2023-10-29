@@ -16,7 +16,6 @@ def housing() -> rx.Component:
         The UI for the housing dpage.
     """
  
-    return rx.vstack(
-        rx.heading("Housing", font_size="3em"),
+    return rx.hstack(
         *[ListingComponent(listing) for listing in Listing.sample_data]
     )
