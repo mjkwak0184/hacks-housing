@@ -35,10 +35,10 @@ export default function Component() {
     }
   }, [router])
 
-  const ref_price_max = useRef(null); refs['ref_price_max'] = ref_price_max;
-  const ref_last_name = useRef(null); refs['ref_last_name'] = ref_last_name;
-  const ref_first_name = useRef(null); refs['ref_first_name'] = ref_first_name;
   const ref_check = useRef(null); refs['ref_check'] = ref_check;
+  const ref_price_max = useRef(null); refs['ref_price_max'] = ref_price_max;
+  const ref_first_name = useRef(null); refs['ref_first_name'] = ref_first_name;
+  const ref_last_name = useRef(null); refs['ref_last_name'] = ref_last_name;
 
   return (
     <Fragment>

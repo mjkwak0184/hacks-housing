@@ -24,7 +24,7 @@ def housing() -> rx.Component:
         sub_list.append(Listing.sample_data[i])
         sub_list.append(Listing.sample_data[i+1])
         sub_list.append(Listing.sample_data[i+2])
-        sub_list.append(Listing.sample_data[i+2])
+        sub_list.append(Listing.sample_data[i+3])
         list_all.append(sub_list)
 
     rx_hstacks = []

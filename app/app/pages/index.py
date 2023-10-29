@@ -72,7 +72,6 @@ def index() -> rx.Component:
                          border="1px solid #555",
                          box_shadow="lg"),
             ),
-
         )
 
     
