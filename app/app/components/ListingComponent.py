@@ -34,7 +34,7 @@ def ListingComponent(listing: Listing) -> rx.Component:
             rx.popover_header("Post Content", font_weight = "bold"),
             rx.popover_body(listing.body),
             rx.popover_header("Potential Room Mates", font_weight = "bold"),
-            rx.popover_footer(rx.text("@Zi_xun_ww")),
+            rx.popover_footer(rx.text(listing.data["housemate"])),
             rx.popover_header("Original Post", font_weight = "bold"),
             rx.link("Housing Page ",href=listing.url, color="rgb(107,99,246)", align = "center"),
             rx.popover_close_button(),
