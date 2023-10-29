@@ -126,12 +126,20 @@ unit8_post = "https://www.facebook.com/pfbid0WbUx5kZKeeMGgDdjEWZ4LBuvHiikGvP6x5n
 
 body_1 = "I am a graduate student at Cal and I have a private furnished bedroom on MLK and Delaware to sublet for the months of June and July. rent will be 1300 + utilities. Here is the craigslist posting dm me"
 body_2 = "Spring 2024 Jan- June Sublease Hi everyone! I am subleasing my spot in a double at The Varsity for Spring 2024 (beginning of Jan-beginning of June- 5 month lease) because I will be studying abroad. My roommate is very friendly and chill and one of my closest friends as well! It is a spacious double in a 3 bed/2 bath apartment with in unit washer/dryer, valet trash, and two balconies. The location is prime and a little over a block away from campus, close to Trader Joe’s, a walk away from the BART station too! The living room has a view of the golden gate too! If you are interested, want more details, or have questions please reach out!"
+body_3 = "2283 Hearst Ave studio $1625"
+body_4 = "Hi, I'm looking for a sublease for the 2024 Spring Semester. I'm in Berkeley working as an independent software developer and assistant coach for the UC squash team. I also have a 2.5 lbs. service dog named Peanut, so if you or any of your housemates smoke cigarettes indoors, please do not DM or comment on this post please as it's extremely toxic for such a small dog. I'm looking to stay in a budget of around $1000/mo."
+body_5 = "Looking for housing in the Downtown Berkeley area! Open to singles or doubles, and need to have parking for my car. Little bit about myself: I’m a working professional currently on my gap year, applying to medical school. I work near Berkeley M-Fri, so will be out of the apartment from 7:30 am - 5:30 pm everyday. I travel home on the weekends so I won’t be there then either.I’m not alc, 420 friendly. Looking for female only roomies!"
+body_6 = "[SPRING SEMESTER SUBLET; VERY LARGE SINGLE] Hello everyone! I am subletting my large single room in a 2 Bed, 1 Bath apartment for the Spring semester 2024 (January-May 2024); looking for a male-identifying subletter! Rent is $1600/month + PG&E, but with the size of the room and the location only 10 minutes from campus (located off Dwight between College and Piedmont), it is completely worth it! The room has lots of natural light and is very spacious! I will be leaving the room furnished, so you do not need to worry about furnishings. Please message me if you’re interested!"
+body_7 = "Hello, I am looking to sub-lease a place for the Spring semester! I am honestly pretty quite and keep to myself for the most part, and I probably gonna be outside a good amount of the time! Please let me know if anyone has any rooms available, my budget is about 1000"
+body_8 = "I'm looking to stay in a budget of around $1000/mo."
+
+
 
 Listing.sample_data = [Listing(1, url = unit1_post,  body = body_1, timestamp = "Jan-10-2020", images = unit1_url, data = sample1),
                        Listing(2, url = unit2_post,  body = body_2, timestamp = "June-20-2023", images = unit2_url, data = sample2),
-                       Listing(3, url = unit3_post,  body = body_2, timestamp = "Jan-10-2020", images = unit3_url, data = sample3),
-                       Listing(4, url = unit4_post,  body = body_2, timestamp = "Jan-10-2020", images = unit4_url, data = sample4),
-                       Listing(5, url = unit5_post,  body = body_2, timestamp = "Jan-10-2020", images = unit5_url, data = sample2),
+                       Listing(3, url = unit3_post,  body = body_3, timestamp = "Jan-10-2020", images = unit3_url, data = sample3),
+                       Listing(4, url = unit4_post,  body = body_4, timestamp = "Jan-10-2020", images = unit4_url, data = sample4),
+                       Listing(5, url = unit5_post,  body = body_5, timestamp = "Jan-10-2020", images = unit5_url, data = sample2),
                        Listing(6, url = unit6_post,  body = body_2, timestamp = "Jan-10-2020", images = unit6_url, data = sample1),
                        Listing(7, url = unit7_post,  body = body_2, timestamp = "Jan-10-2020", images = unit7_url, data = sample2),
                        Listing(8, url = unit8_post,  body = body_2, timestamp = "Jan-10-2020", images = unit8_url, data = sample4),
