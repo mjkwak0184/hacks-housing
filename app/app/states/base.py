@@ -7,9 +7,9 @@ class User(rx.Model, table=True):
     username: str
     password: str
     phone: str
-    prefs_price: float
+    prefs_price: int
     prefs_gender: str
-    prefs_distance: float
+    prefs_distance: str
 
 class State(rx.State):
     """Base state for the app.

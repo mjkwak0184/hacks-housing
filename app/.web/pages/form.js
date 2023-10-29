@@ -3,9 +3,10 @@ import { useRouter } from "next/router"
 import { Event, getAllLocalStorageItems, getRefValue, getRefValues, isTrue, preventDefault, refs, set_val, spreadArraysOrObjects, uploadFiles, useEventLoop } from "/utils/state"
 import { ColorModeContext, EventLoopContext, initialEvents, StateContext } from "/utils/context.js"
 import "focus-visible/dist/focus-visible"
-import { Box, Button, Checkbox, Heading, HStack, Image, Input, Link, Modal, ModalBody, ModalContent, ModalHeader, ModalOverlay, Spacer, Text, Tooltip, VStack } from "@chakra-ui/react"
+import { Box, Button, Checkbox, Heading, HStack, Image, Input, Link, Modal, ModalBody, ModalContent, ModalHeader, ModalOverlay, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, Spacer, Text, Tooltip, VStack } from "@chakra-ui/react"
 import { getEventURL } from "/utils/state.js"
 import NextLink from "next/link"
+import { DebounceInput } from "react-debounce-input"
 import NextHead from "next/head"
 
 
@@ -35,10 +36,18 @@ export default function Component() {
     }
   }, [router])
 
+<<<<<<< Updated upstream
   const ref_check = useRef(null); refs['ref_check'] = ref_check;
   const ref_price_max = useRef(null); refs['ref_price_max'] = ref_price_max;
   const ref_first_name = useRef(null); refs['ref_first_name'] = ref_first_name;
   const ref_last_name = useRef(null); refs['ref_last_name'] = ref_last_name;
+=======
+  const ref_prefs_distance = useRef(null); refs['ref_prefs_distance'] = ref_prefs_distance;
+  const ref_prefs_price = useRef(null); refs['ref_prefs_price'] = ref_prefs_price;
+  const ref_check = useRef(null); refs['ref_check'] = ref_check;
+  const ref_prefs_gender = useRef(null); refs['ref_prefs_gender'] = ref_prefs_gender;
+  const ref_username = useRef(null); refs['ref_username'] = ref_username;
+>>>>>>> Stashed changes
 
   return (
     <Fragment>
@@ -119,26 +128,29 @@ export default function Component() {
   <Box>
   <Box>
   <VStack alignItems={`left`} justifyContent={`left`} sx={{"width": "90vw", "height": "90vh", "display": "flex"}}>
-  <Box as={`form`}>
   <VStack>
   <Heading sx={{"fontSize": "2em", "textAlign": "left"}}>
   {`Preference Form`}
 </Heading>
-  <Input id={`first_name`} placeholder={`First Name`} ref={ref_first_name} type={`text`}/>
-  <Input id={`last_name`} placeholder={`Last Name`} ref={ref_last_name} type={`text`}/>
-  <Input id={`price_max`} placeholder={`Budget`} ref={ref_price_max} type={`text`}/>
-  <Input id={`price_max`} placeholder={`Gender`} ref={ref_price_max} type={`text`}/>
-  <Input id={`price_max`} placeholder={`Distance`} ref={ref_price_max} type={`text`}/>
+  <DebounceInput debounceTimeout={50} element={Input} id={`username`} inputRef={ref_username} onChange={(_e0) => addEvents([Event("state.form_state.set_username", {username:_e0.target.value})], (_e0))} placeholder={`Display Name`} type={`text`} value={state.current_user?.username}/>
+  <NumberInput onChange={(_e0) => addEvents([Event("state.form_state.set_prefs_price", {prefs_price:_e0})], (_e0))} sx={{"placeholder": "Budget"}} value={state.current_user?.prefs_price}>
+  <NumberInputField id={`prefs_price`} ref={ref_prefs_price}/>
+  <NumberInputStepper>
+  <NumberIncrementStepper/>
+  <NumberDecrementStepper/>
+</NumberInputStepper>
+</NumberInput>
+  <DebounceInput debounceTimeout={50} element={Input} id={`prefs_gender`} inputRef={ref_prefs_gender} onChange={(_e0) => addEvents([Event("state.form_state.set_prefs_gender", {prefs_gender:_e0.target.value})], (_e0))} placeholder={`Gender`} type={`text`} value={state.current_user?.prefs_gender}/>
+  <DebounceInput debounceTimeout={50} element={Input} id={`prefs_distance`} inputRef={ref_prefs_distance} onChange={(_e0) => addEvents([Event("state.form_state.set_prefs_distance", {prefs_distance:_e0.target.value})], (_e0))} placeholder={`Distance`} type={`text`} value={state.current_user?.prefs_distance}/>
   <HStack>
   <Checkbox id={`check`} ref={ref_check}>
   {`Privacy Agreement`}
 </Checkbox>
 </HStack>
-  <Button type={`submit`}>
+  <Button onClick={(_e) => addEvents([Event("state.form_state.form_submit", {})], (_e))}>
   {`Submit`}
 </Button>
 </VStack>
-</Box>
 </VStack>
 </Box>
 </Box>
