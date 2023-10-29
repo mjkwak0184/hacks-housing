@@ -5,7 +5,7 @@ As a former student, I personally experienced the frustration and challenges of 
 ## **Inspiration**
 The idea behind [Your Startup Name] was born from my own struggles. I understood the pain points of students and professionals looking for housing near dynamic regions like Berkeley. I wanted to eliminate the compromise between price and distance, making the entire process more efficient, personalized, and stress-free.
 
-![Image Caption](https://example.com/sample-image.png) <!-- Replace with the URL of your image -->
+<img src="systemDesignDiagram.jpg" alt="Image Caption" width="50%" />
 
 ## **What I Learned**
 My journey involved diving deep into the real estate market, understanding the nuances of different neighborhoods, and learning about the preferences and pain points of prospective renters. I also delved into the potential of advanced AI technologies to solve these problems.
