@@ -140,9 +140,9 @@ Listing.sample_data = [Listing(1, url = unit1_post,  body = body_1, timestamp = 
                        Listing(3, url = unit3_post,  body = body_3, timestamp = "Jan-10-2020", images = unit3_url, data = sample3),
                        Listing(4, url = unit4_post,  body = body_4, timestamp = "Jan-10-2020", images = unit4_url, data = sample4),
                        Listing(5, url = unit5_post,  body = body_5, timestamp = "Jan-10-2020", images = unit5_url, data = sample2),
-                       Listing(6, url = unit6_post,  body = body_2, timestamp = "Jan-10-2020", images = unit6_url, data = sample1),
-                       Listing(7, url = unit7_post,  body = body_2, timestamp = "Jan-10-2020", images = unit7_url, data = sample2),
-                       Listing(8, url = unit8_post,  body = body_2, timestamp = "Jan-10-2020", images = unit8_url, data = sample4),
+                       Listing(6, url = unit6_post,  body = body_6, timestamp = "Jan-10-2020", images = unit6_url, data = sample1),
+                       Listing(7, url = unit7_post,  body = body_7, timestamp = "Jan-10-2020", images = unit7_url, data = sample2),
+                       Listing(8, url = unit8_post,  body = body_8, timestamp = "Jan-10-2020", images = unit8_url, data = sample4),
                          ]
 
 Listing.listings_to_dataframe(Listing.sample_data)
