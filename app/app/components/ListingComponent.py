@@ -3,6 +3,10 @@ import reflex as rx
 from app.data.Listing import Listing
 from app.components.ListingCategory import ListingCategory
 
+style = {
+    
+}
+
 def ListingComponent(listing) -> rx.Component:
     if not isinstance(listing, Listing): return rx.vstack()
     return rx.vstack(
