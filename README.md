@@ -6,6 +6,8 @@ As a former student, I personally experienced the frustration and challenges of 
 The idea behind "Cal Housing" was born from my own struggles. I understood the pain points of students and professionals looking for housing near dynamic regions like Berkeley. I wanted to eliminate the compromise between price and distance, making the entire process more efficient, personalized, and stress-free.
 
 <img src="systemDesignDiagram2.jpg" alt="Image Caption" width="50%" />
+<img src="housing.jpeg" alt="Image Caption" width="50%" />
+
 
 ## **What I Learned**
 My journey involved diving deep into the real estate market, understanding the nuances of different neighborhoods, and learning about the preferences and pain points of prospective renters. I also delved into the potential of advanced AI technologies to solve these problems.
