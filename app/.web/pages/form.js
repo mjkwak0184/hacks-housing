@@ -37,10 +37,10 @@ export default function Component() {
   }, [router])
 
   const ref_prefs_price = useRef(null); refs['ref_prefs_price'] = ref_prefs_price;
-  const ref_prefs_gender = useRef(null); refs['ref_prefs_gender'] = ref_prefs_gender;
   const ref_check = useRef(null); refs['ref_check'] = ref_check;
   const ref_prefs_distance = useRef(null); refs['ref_prefs_distance'] = ref_prefs_distance;
   const ref_username = useRef(null); refs['ref_username'] = ref_username;
+  const ref_prefs_gender = useRef(null); refs['ref_prefs_gender'] = ref_prefs_gender;
 
   return (
     <Fragment>

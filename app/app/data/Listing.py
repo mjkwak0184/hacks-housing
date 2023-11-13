@@ -1,64 +1,64 @@
 import reflex as rx
 import pandas as pd
 class Listing:
-    def __init__(self, id, url, body, timestamp="", images=[], data={}) -> None:
-        self.id = id
-        self.url= url
-        self.body = body
-        self.timestamp = timestamp
-        self.images = images
-        self.data = data
-    
-    sample_data = []
+		def __init__(self, id, url, body, timestamp="", images="https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/393640815_2546204882203493_2764637398827397985_n.jpg?stp=cp6_dst-jpg&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=4wVgP9zNbzMAX_P7alj&_nc_ht=scontent-atl3-1.xx&oh=00_AfA9mZZSmH-CIp-Z6HHxG2zU1gqfjF6W9oIL2Nnvo4reVQ&oe=65443266", data={}) -> None:
+				self.id = id
+				self.url= url
+				self.body = body
+				self.timestamp = timestamp
+				self.images = images
+				self.data = data
+		
+		sample_data = []
 
-    def listings_to_dataframe(listings):
-        rows = []
-        for listing in listings:
-            row = {
-                "id": listing.id,
-                "url": listing.url,
-                "body": listing.body,
-                "timestamp": listing.timestamp,
-                "images": listing.images,
-            }
-            # merging the data dictionary with the row dictionary
-            row.update(listing.data)
-            rows.append(row)
-        return pd.DataFrame(rows)
-    
-    def dataframe_to_listings(df):
-        listings = []
+		def listings_to_dataframe(listings):
+				rows = []
+				for listing in listings:
+						row = {
+								"id": listing.id,
+								"url": listing.url,
+								"body": listing.body,
+								"timestamp": listing.timestamp,
+								"images": listing.images,
+						}
+						# merging the data dictionary with the row dictionary
+						row.update(listing.data)
+						rows.append(row)
+				return pd.DataFrame(rows)
+		
+		def dataframe_to_listings(df):
+				listings = []
 
-        # Iterate over each row in the dataframe
-        for _, row in df.iterrows():
-            # Extract attributes directly related to the Listing
-            id_val = row['id']
-            url = row['url']
-            body = row['body']
-            timestamp = row['timestamp']
-            images = row['images']
-            
-            # Extract the remaining columns for the 'data' attribute
-            data = {
-                'type': row['type'],
-                'price': row['price'],
-                'unit_type': row['unit_type'],
-                'num_bath': row['num_bath'],
-                'num_bed': row['num_bed'],
-                'location': row['location'],
-                'distance': row['distance'],
-                'gender': row['gender']
-            }
-            
-            # Create a Listing object and append to result list
-            listings.append(Listing(id_val, url, body, timestamp, images, data))
+				# Iterate over each row in the dataframe
+				for _, row in df.iterrows():
+						# Extract attributes directly related to the Listing
+						id_val = row['id']
+						url = row['url']
+						body = row['body']
+						timestamp = row['timestamp']
+						images = row['images']
+						
+						# Extract the remaining columns for the 'data' attribute
+						data = {
+								'type': row['type'],
+								'price': row['price'],
+								'unit_type': row['unit_type'],
+								'num_bath': row['num_bath'],
+								'num_bed': row['num_bed'],
+								'location': row['location'],
+								'distance': row['distance'],
+								'gender': row['gender']
+						}
+						
+						# Create a Listing object and append to result list
+						listings.append(Listing(id_val, url, body, timestamp, images, data))
 
-        return listings
+				return listings
 
 
-    
-    
-    
+		
+		
+		
 
 unit1_url = "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/393640815_2546204882203493_2764637398827397985_n.jpg?stp=cp6_dst-jpg&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=4wVgP9zNbzMAX_P7alj&_nc_ht=scontent-atl3-1.xx&oh=00_AfA9mZZSmH-CIp-Z6HHxG2zU1gqfjF6W9oIL2Nnvo4reVQ&oe=65443266"
 unit2_url = "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/397399591_2126546514218993_4738919453268130653_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=yGZPy3-_L40AX9iW7YP&_nc_ht=scontent-atl3-1.xx&oh=00_AfBgznTevlbddttNAyQWJPylTGnpU5eqV8UFje9mFMsKFw&oe=6543D61A"
@@ -69,51 +69,51 @@ unit6_url = "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/397240135_247623
 unit7_url = "https://scontent-atl3-2.xx.fbcdn.net/v/t39.30808-6/395388887_1706392373172543_4797809958436331633_n.jpg?stp=cp6_dst-jpg&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=DysKUkaTldEAX-oyFRB&_nc_ht=scontent-atl3-2.xx&oh=00_AfCmgEs5eLKs2ciaTSnBEvXIoStgZ3Vw6UHOv0ROzo60qQ&oe=654290D6"
 unit8_url = "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/396735328_10168178130585022_6322194620757932184_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=JUTS-Jq5M3cAX_Kq6cz&_nc_ht=scontent-atl3-1.xx&oh=00_AfAYjE2eaWn-tRNwTZPE6CF7oJXc5DMQERTRw2cINc23QQ&oe=65437BFB"
 sample1 = {
-  "type": 1,
-  "price": 1050,
-  "unit_type": 1,
-  "num_bath": 2,
-  "num_bed": 2,
-  "location": "Southside",
-  "distance": 0.5,
-  "gender": 1,
-  "housemate": "@Xun_ww, @T_Chang",
+	"type": 1,
+	"price": 1050,
+	"unit_type": 1,
+	"num_bath": 2,
+	"num_bed": 2,
+	"location": "Southside",
+	"distance": 0.5,
+	"gender": 1,
+	"housemate": "@Xun_ww, @T_Chang",
 }
 
 sample2 = {
-  "type": 1,
-  "price": 1050,
-  "unit_type": 1,
-  "num_bath": 2,
-  "num_bed": 2,
-  "location": "Southside",
-  "distance": 0.5,
-  "gender": 1,
-  "housemate": "@Xun_ww, @T_Chang, @TK_K",
+	"type": 1,
+	"price": 1050,
+	"unit_type": 1,
+	"num_bath": 2,
+	"num_bed": 2,
+	"location": "Southside",
+	"distance": 0.5,
+	"gender": 1,
+	"housemate": "@Xun_ww, @T_Chang, @TK_K",
 }
 
 sample3 = {
-  "type": 1,
-  "price": 1050,
-  "unit_type": 1,
-  "num_bath": 2,
-  "num_bed": 2,
-  "location": "Southside",
-  "distance": 0.5,
-  "gender": 1,
-  "housemate": "@MJ_xx, @Cal_hh",
+	"type": 1,
+	"price": 1050,
+	"unit_type": 1,
+	"num_bath": 2,
+	"num_bed": 2,
+	"location": "Southside",
+	"distance": 0.5,
+	"gender": 1,
+	"housemate": "@MJ_xx, @Cal_hh",
 }
 
 sample4 = {
-  "type": 1,
-  "price": 1050,
-  "unit_type": 1,
-  "num_bath": 2,
-  "num_bed": 2,
-  "location": "Southside",
-  "distance": 0.5,
-  "gender": 1,
-  "housemate": "@Xun_ZZ",
+	"type": 1,
+	"price": 1050,
+	"unit_type": 1,
+	"num_bath": 2,
+	"num_bed": 2,
+	"location": "Southside",
+	"distance": 0.5,
+	"gender": 1,
+	"housemate": "@Xun_ZZ",
 }
 unit1_post = "https://www.facebook.com/photo/?fbid=2546203545536960&set=pcb.1858490074546806"
 unit2_post = "https://www.facebook.com/photo/?fbid=2126546117552366&set=pcb.1864490643946749"
@@ -123,6 +123,7 @@ unit5_post = "https://www.facebook.com/photo/?fbid=872660797696216&set=pcb.18643
 unit6_post = "https://www.facebook.com/photo/?fbid=308467761935770&set=pcb.1861920180870462"
 unit7_post = "https://www.facebook.com/photo/?fbid=24762300080035270&set=pcb.1864329413962872"
 unit8_post = "https://www.facebook.com/pfbid0WbUx5kZKeeMGgDdjEWZ4LBuvHiikGvP6x5n6HhMXsRVzWQshyT5zSbT6szp962nql/videos/pcb.1863309114064902/351837304188629"
+
 
 body_1 = "I am a graduate student at Cal and I have a private furnished bedroom on MLK and Delaware to sublet for the months of June and July. rent will be 1300 + utilities. Here is the craigslist posting dm me"
 body_2 = "Spring 2024 Jan- June Sublease Hi everyone! I am subleasing my spot in a double at The Varsity for Spring 2024 (beginning of Jan-beginning of June- 5 month lease) because I will be studying abroad. My roommate is very friendly and chill and one of my closest friends as well! It is a spacious double in a 3 bed/2 bath apartment with in unit washer/dryer, valet trash, and two balconies. The location is prime and a little over a block away from campus, close to Trader Joe’s, a walk away from the BART station too! The living room has a view of the golden gate too! If you are interested, want more details, or have questions please reach out!"
@@ -135,16 +136,22 @@ body_8 = "I'm looking to stay in a budget of around $1000/mo."
 
 
 
-Listing.sample_data = [Listing(1, url = unit1_post,  body = body_1, timestamp = "Jan-10-2020", images = unit1_url, data = sample1),
-                       Listing(2, url = unit2_post,  body = body_2, timestamp = "June-20-2023", images = unit2_url, data = sample2),
-                       Listing(3, url = unit3_post,  body = body_3, timestamp = "Jan-10-2020", images = unit3_url, data = sample3),
-                       Listing(4, url = unit4_post,  body = body_4, timestamp = "Jan-10-2020", images = unit4_url, data = sample4),
-                       Listing(5, url = unit5_post,  body = body_5, timestamp = "Jan-10-2020", images = unit5_url, data = sample2),
-                       Listing(6, url = unit6_post,  body = body_6, timestamp = "Jan-10-2020", images = unit6_url, data = sample1),
-                       Listing(7, url = unit7_post,  body = body_7, timestamp = "Jan-10-2020", images = unit7_url, data = sample2),
-                       Listing(8, url = unit8_post,  body = body_8, timestamp = "Jan-10-2020", images = unit8_url, data = sample4),
-                         ]
+Listing.sample_data = []
 
-Listing.listings_to_dataframe(Listing.sample_data)
+import json
+with open("./app/data/post.json", "r") as file:
+	posts = json.loads(file.read())
+	for post in posts:
+		try:
+			if post["images"]:
+				print(post["parsed_output"])
+				listing = Listing(post["id"], post["url"], post["body"], post["timestamp"], post["images"], json.loads(post["parsed_output"]))
+				Listing.sample_data.append(listing)
+		except Exception as e:
+			print("error", e)
+			pass
+print(Listing.sample_data)
+
+# Listing.listings_to_dataframe(Listing.sample_data)
 
 
